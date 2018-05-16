@@ -7,18 +7,17 @@
 # Hurray!
 
 import angr
-
 import claripy
 
 def main():
     proj = angr.Project('./crackme')
 
-    input_size = 0x20; # Pick a max length for input, 0x20 is the minimum length
+    input_size = 0x25; # Pick a max length for input. 0x20 is the minimum length. I've no idea why.
 
     argv1 = claripy.BVS("argv1", input_size * 8) # declare argv[1], as a symbolic bit vector.  This is the password input from the user.
 
     initial_state = proj.factory.entry_state(args=["./crackme", argv1])
-    
+
     # For some reason if you constrain too few bytes, the solution isn't found. To be safe, I'm constraining them all.
     for byte in argv1.chop(8):
         initial_state.add_constraints(byte != '\x00') # null

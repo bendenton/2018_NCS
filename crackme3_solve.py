@@ -18,16 +18,6 @@ def main():
 
     initial_state = proj.factory.entry_state(args=[target, argv1])
 
-    # For some reason if you constrain too few bytes, the solution isn't found. To be safe, I'm constraining them all.
-    for byte in argv1.chop(8):
-        initial_state.add_constraints(byte != '\x00') # null
-        initial_state.add_constraints(byte != '\x60') # `
-        initial_state.add_constraints(byte != '\x5C') # \
-        #initial_state.add_constraints(byte >= 'A') # \x30
-        #initial_state.add_constraints(byte <= 'z') # \x7A
-        # Source: https://www.juniper.net/documentation/en_US/idp5.1/topics/reference/general/intrusion-detection-prevention-custom-attack-object-extended-ascii.html
-        # Constrain to printable characters
-
     sm = proj.factory.simulation_manager(initial_state)
 
     find_addr = 0x400685
@@ -41,7 +31,7 @@ def main():
     f=open("crackme3_solution","wb")
     f.write(solution)
     f.close()
-    
+
     return solution
 
 if __name__ == '__main__':

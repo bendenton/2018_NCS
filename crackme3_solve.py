@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 
-# Author: Ben Denton (ben@bendenton.com) | 17 April 2018
-# Solves "crackme" from https://github.com/holbertonschool/dont_hate_the_hacker_hate_the_code
+# Author: Ben Denton (ben@bendenton.com) | 16 May 2018
+# Solves "crackme3" from https://github.com/holbertonschool/dont_hate_the_hacker_hate_the_code
 
 # run ./crackme "$(<crackme_solution)" after executing this script to  verify
 # Hurray!

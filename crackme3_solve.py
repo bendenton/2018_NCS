@@ -28,6 +28,7 @@ def main():
         f=open("crackme3_solution","wb")
         f.write(solution)
         f.close()
+        print 'run ./crackme3 "$(<crackme3_solution)"'
 
     return solution
 

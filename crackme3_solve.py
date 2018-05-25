@@ -3,8 +3,7 @@
 # Author: Ben Denton (ben@bendenton.com)
 # Solves "crackme3" from https://github.com/holbertonschool/dont_hate_the_hacker_hate_the_code
 
-# run ./crackme "$(<crackme_solution)" after executing this script to  verify
-# Hurray!
+# run ./crackme3 "$(<crackme3_solution)" after executing this script to  verify
 
 import angr
 import claripy
@@ -24,11 +23,11 @@ def main():
     avoid_addr = [0x4006f5, 0x40062b]
 
     sm.explore(find=find_addr, avoid=avoid_addr)
-
-    solution = sm.found[0].solver.eval(argv1, cast_to=str)
-    f=open("crackme3_solution","wb")
-    f.write(solution)
-    f.close()
+    if sm.found:
+        solution = sm.found[0].solver.eval(argv1, cast_to=str)
+        f=open("crackme3_solution","wb")
+        f.write(solution)
+        f.close()
 
     return solution
 

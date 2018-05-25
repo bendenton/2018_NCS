@@ -1,1 +1,4 @@
-# dont_hate_the_hacker_hate_the_code
+# 2018 National Cyber Summit | Huntsville, AL
+
+U Mad?  Binary Analysis with the angr Framework
+Ben Denton, PhD | DESE Research, Inc.
